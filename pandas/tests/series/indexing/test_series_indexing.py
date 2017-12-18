@@ -2386,6 +2386,3 @@ class TestSeriesIndexing(TestData):
         exp = Series(Categorical([1, np.nan, 3], categories=[1, 2, 3]))
         s[1] = np.nan
         tm.assert_series_equal(s, exp)
-
-
-class TestSeriesIndexing_iloc(TestSeriesIndexing):
