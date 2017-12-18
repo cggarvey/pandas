@@ -198,7 +198,8 @@ class TestDatetimeIndexing_SetGet(object):
     def tz_ts_ny(self):
         n = 50
         # testing with timezone, GH #2785
-        rng = date_range('1/1/1990', periods=n, freq='H', tz='America/New_York')
+        rng = date_range('1/1/1990', periods=n, freq='H',
+                         tz='America/New_York')
         return Series(np.random.randn(n), index=rng)
 
     @pytest.mark.parametrize('index_val', [
@@ -602,8 +603,8 @@ class TestTimeSeriesDuplicates(object):
         # GH14826, indexing with a seconds resolution string / datetime object
         df = DataFrame(np.random.rand(5, 5),
                        columns=['open', 'high', 'low', 'close', 'volume'],
-                       index=pd.date_range('2012-01-02 18:01:00',
-                                           periods=5, tz='US/Central', freq='s'))
+                       index=pd.date_range('2012-01-02 18:01:00', periods=5,
+                                           tz='US/Central', freq='s'))
         expected = df.loc[[df.index[2]]]
         assert isinstance(expected, DataFrame)
         assert len(expected) == 1

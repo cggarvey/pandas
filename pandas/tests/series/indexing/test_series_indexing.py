@@ -2131,5 +2131,3 @@ class TestSeriesIndexing_SetItem(TestData):
         s[:4] = 0
         assert (s[:4] == 0).all()
         assert not (s[4:] == 0).any()
-
-

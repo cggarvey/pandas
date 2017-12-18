@@ -40,34 +40,34 @@ class TestSeriesIndexing_Categorical(TestData):
     def bb(self):
         return Series(Categorical(["b", "b"], categories=["a", "b"]))
 
-    def test_categorial_assigning_ops_all(self, bb):
+    def test_categorical_assigning_ops_all(self, bb):
         bb[:] = "a"
         exp = Series(Categorical(["a", "a"], categories=["a", "b"]))
         tm.assert_series_equal(bb, exp)
 
-    def test_categorial_assigning_ops_int(self, bb):
+    def test_categorical_assigning_ops_int(self, bb):
         bb[1] = "a"
         exp = Series(Categorical(["b", "a"], categories=["a", "b"]))
         tm.assert_series_equal(bb, exp)
 
-    def test_categorial_assigning_ops_slice(self, bb):
+    def test_categorical_assigning_ops_slice(self, bb):
         bb[bb.index > 0] = "a"
         exp = Series(Categorical(["b", "a"], categories=["a", "b"]))
         tm.assert_series_equal(bb, exp)
 
-    def test_categorial_assigning_ops_bools(self, bb):
+    def test_categorical_assigning_ops_bools(self, bb):
         bb[[False, True]] = "a"
         exp = Series(Categorical(["b", "a"], categories=["a", "b"]))
         tm.assert_series_equal(bb, exp)
 
-    def test_categorial_assigning_ops_str(self, bb):
+    def test_categorical_assigning_ops_str(self, bb):
         bb.index = ["x", "y"]
         bb["y"] = "a"
         exp = Series(Categorical(["b", "a"], categories=["a", "b"]),
                      index=["x", "y"])
         tm.assert_series_equal(bb, exp)
 
-    def test_categorial_assigning_ops_nan(self):
+    def test_categorical_assigning_ops_nan(self):
         # ensure that one can set something to np.nan
         s = Series(Categorical([1, 2, 3]))
         exp = Series(Categorical([1, np.nan, 3], categories=[1, 2, 3]))
