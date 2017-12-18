@@ -9,7 +9,7 @@ from dateutil.tz import tzutc
 import pandas as pd
 from pandas import (DataFrame, Series, DatetimeIndex, Timestamp, date_range,
                     period_range)
-from pandas._libs import lib, tslib, index as _index
+from pandas._libs import lib, index as _index
 from pandas._libs.tslibs.timezones import dateutil_gettz as gettz
 from pandas.compat import range, lrange
 from pandas.util import testing as tm
